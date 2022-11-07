@@ -1,5 +1,5 @@
-# WebGL
+# WebGL Practical Assignments
 
-Project that accompanies VGGI credit module.
+Project made by Illia Duliebov. TR-22mp. KPI
 
-Visit vggi-kpi.blogspot.com for more information
+Send me mail for any information: # namenlosenleute@gmail.com
