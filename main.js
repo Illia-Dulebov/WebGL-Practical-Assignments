@@ -13,6 +13,18 @@ function VRestrictions(v) {
     return v * Math.PI * 2;
 }
 
+function xFunction(r, a, v, u) {
+    return (r + a * Math.cos(u / 2)) * Math.cos(u / 3) + a * Math.cos(u / 3) * Math.cos(v - Math.PI)
+}
+
+function yFunction(r, a, v, u) {
+    return (r + a * Math.cos(u / 2)) * Math.sin(u / 3) + a * Math.sin(u / 3) * Math.cos(v - Math.PI);
+}
+
+function zFunction(a, v, u) {
+    return a + Math.sin(u / 2) + a * Math.sin(v - Math.PI);
+}
+
 
 // Constructor
 function Model(name) {
@@ -108,9 +120,9 @@ function CreateSurfaceData()
             let u = URestrictions(u1);
             let v = VRestrictions(v1);
 
-            let x = (r + a * Math.cos(u / 2)) * Math.cos(u / 3) + a * Math.cos(u / 3) * Math.cos(v - Math.PI);
-            let y = (r + a * Math.cos(u / 2)) * Math.sin(u / 3) + a * Math.sin(u / 3) * Math.cos(v - Math.PI);
-            let z = a + Math.sin(u / 2) + a * Math.sin(v - Math.PI);
+            let x = xFunction(r, a, v, u);
+            let y = yFunction(r, a, v, u);
+            let z = zFunction(a, v, u);
 
             vertices.push(x);  // X
             vertices.push(y);  // Y
