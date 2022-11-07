@@ -130,8 +130,7 @@ function CreateSurfaceData()
 
         }
     }
-
-
+    
     return vertices;
 }
 
