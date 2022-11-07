@@ -88,14 +88,33 @@ function draw() {
 
 function CreateSurfaceData()
 {
-    let vertexList = [];
+    const vertices = []
 
-    for (let i=0; i<360; i+=5) {
-        vertexList.push( Math.sin(deg2rad(i)), 1, Math.cos(deg2rad(i)) );
-        vertexList.push( Math.sin(deg2rad(i)), 0, Math.cos(deg2rad(i)) );
+    const r = parseFloat(1.0);
+    const a = parseFloat(0.5);
+    const n = parseInt(300);
+
+    for (let j = 0; j <= n; j++) {
+        let u1 = j / n;
+
+        for (let i = 0; i <= n; i++) {
+            let v1 = i / n;
+            let u = u1 * Math.PI * 12;
+            let v = v1 * Math.PI * 2;
+
+            let x = (r + a * Math.cos(u / 2)) * Math.cos(u / 3) + a * Math.cos(u / 3) * Math.cos(v - Math.PI);
+            let y = (r + a * Math.cos(u / 2)) * Math.sin(u / 3) + a * Math.sin(u / 3) * Math.cos(v - Math.PI);
+            let z = a + Math.sin(u / 2) + a * Math.sin(v - Math.PI);
+
+            vertices.push(x);  // X
+            vertices.push(y);  // Y
+            vertices.push(z);  // Z
+
+        }
     }
 
-    return vertexList;
+
+    return vertices;
 }
 
 
