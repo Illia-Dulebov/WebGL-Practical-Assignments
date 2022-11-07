@@ -5,8 +5,12 @@ let surface;                    // A surface model
 let shProgram;                  // A shader program
 let spaceball;                  // A SimpleRotator object that lets the user rotate the view by mouse.
 
-function deg2rad(angle) {
-    return angle * Math.PI / 180;
+function URestrictions(u) {
+    return u * Math.PI * 12;
+}
+
+function VRestrictions(v) {
+    return v * Math.PI * 2;
 }
 
 
@@ -86,10 +90,12 @@ function draw() {
     surface.Draw();
 }
 
+//Creating data as vertices for surface
 function CreateSurfaceData()
 {
     const vertices = []
 
+    //Parametrs of surface
     const r = parseFloat(1.0);
     const a = parseFloat(0.5);
     const n = parseInt(300);
@@ -99,8 +105,8 @@ function CreateSurfaceData()
 
         for (let i = 0; i <= n; i++) {
             let v1 = i / n;
-            let u = u1 * Math.PI * 12;
-            let v = v1 * Math.PI * 2;
+            let u = URestrictions(u1);
+            let v = VRestrictions(v1);
 
             let x = (r + a * Math.cos(u / 2)) * Math.cos(u / 3) + a * Math.cos(u / 3) * Math.cos(v - Math.PI);
             let y = (r + a * Math.cos(u / 2)) * Math.sin(u / 3) + a * Math.sin(u / 3) * Math.cos(v - Math.PI);
