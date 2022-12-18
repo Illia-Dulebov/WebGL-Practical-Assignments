@@ -238,7 +238,7 @@ function initGL() {
   shProgram.iWorldInverseTranspose = gl.getUniformLocation(prog, "WorldInverseTranspose");
   shProgram.iWorldMatrix = gl.getUniformLocation(prog, "WorldMatrix");
   shProgram.iLightWorldPosition = gl.getUniformLocation(prog, "LightWorldPosition");
-  shProgram.iLightDirection = gl.getUniformLocation(prog, "LightDirection");
+  shProgram.iLightDirection = gl.getUniformLocation(prog, "LightLocation");
   shProgram.iViewWorldPosition = gl.getUniformLocation(prog, "ViewWorldPosition");
 
   surface = new Model("Surface");
