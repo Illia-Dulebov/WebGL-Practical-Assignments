@@ -325,5 +325,5 @@ window.addEventListener("keydown", function (event) {
 });
 
 function LineSig() {
-  return [inputValue, 20, -1 * inputValue * 10];
+  return [inputValue, 15, -1 * inputValue * 10];
 }
